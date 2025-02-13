@@ -18,7 +18,7 @@ This study focuses on leveraging **CheXzero** and **Xplainer** to analyze Medica
 /self_research_2
 │── /CheXzero-base       # Codebase for reproducing CheXzero
 │── /Xplainer-base       # Codebase for reproducing XPLAINER
-│── README.md       # Project documentation
+│── README.md  
 ```
 
 ## 📜 References
