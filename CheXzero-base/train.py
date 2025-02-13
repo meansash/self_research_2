@@ -64,9 +64,9 @@ class CXRDataset(data.Dataset):
         
         return sample
 
-def load_data(cxr_filepath, txt_filepath, batch_size=4, column='report', pretrained=False, verbose=False): 
+def load_data(cxr_filepath, txt_filepath, batch_size=4, column='report', pretrained=False, verbose=False, cuda=0):
     if torch.cuda.is_available():  
-        dev = "cuda:0" 
+        dev = f"cuda:{cuda}"
         cuda_available = True
         print('Using CUDA.')
     else:  
@@ -110,7 +110,7 @@ def load_data(cxr_filepath, txt_filepath, batch_size=4, column='report', pretrai
     data_loader = data.DataLoader(torch_dset, **loader_params)
     return data_loader, device
     
-def load_clip(model_path=None, pretrained=False, context_length=77):
+def load_clip(model_path=None, pretrained=False, context_length=77,cuda=0):
     '''
     FUNCTION: load_clip
     -------------------------------
@@ -140,7 +140,7 @@ def load_clip(model_path=None, pretrained=False, context_length=77):
     }
     
     # set device 
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device(f"cuda:{cuda}" if torch.cuda.is_available() else "cpu")
     
     if pretrained: 
         # load clip pre-trained model

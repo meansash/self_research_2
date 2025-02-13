@@ -32,6 +32,7 @@ def parse_args():
     parser.add_argument('--context_length', type=int, default=77)
     parser.add_argument('--random_init', action='store_true')
     parser.add_argument('--model_name', type=str, default="pt-imp")
+    parser.add_argument('--cuda', type=int, default=0)
     args = parser.parse_args()
     return args
 
@@ -52,8 +53,8 @@ def model_pipeline(config, verbose=0):
 
 def make(config): 
     pretrained = not config.random_init
-    data_loader, device = load_data(config.cxr_filepath, config.txt_filepath, batch_size=config.batch_size, pretrained=pretrained, column="impression")
-    model = load_clip(model_path=None, pretrained=pretrained, context_length=config.context_length)
+    data_loader, device = load_data(config.cxr_filepath, config.txt_filepath, batch_size=config.batch_size, pretrained=pretrained, column="impression",cuda = config.cuda)
+    model = load_clip(model_path=None, pretrained=pretrained, context_length=config.context_length, cuda=config.cuda)
     model.to(device)
     print('Model on Device.')
 
