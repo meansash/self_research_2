@@ -1,0 +1,4 @@
+scikit-learn
+transformers==4.17.0
+gradio==3.34.0
+pandas
