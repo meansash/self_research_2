@@ -25,7 +25,7 @@ self_research_2
 | Model     | Dataset       | AUC    | Notes                      |
 |-----------|---------------|--------|----------------------------|
 | CheXzero  | CheXpert Test | 0.8432 | Baseline reproduction      |
-|  CheXzero | CheXpert Test | 0.8663 | Xplainer's Prompt Template |
+|  CheXzero | CheXpert Test | 0.8564 | Xplainer's Prompt Template |
 |  CheXzero | CheXpert Test | 0.8663 | Ours Method                |
 | Xplainer  | CheXper Test  | 0.8246 | Baseline reproduction      |
 
